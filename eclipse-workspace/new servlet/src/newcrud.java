@@ -16,16 +16,24 @@ public class newcrud extends HttpServlet {
 
         String enteredUsername = request.getParameter("username");
         String enteredPassword = request.getParameter("password");
-
-        if (validUsername.equals(enteredUsername) && validPassword.equals(enteredPassword)) {
-            response.sendRedirect("secured_page.jsp");
-        } else {
-            String forgetPassword = request.getParameter("forgetPassword");
-            if ("true".equals(forgetPassword)) {
-                response.sendRedirect("forgot.html");
-            } else {
-                response.sendRedirect("login.html");
-            }
+try {
+    if (validUsername.equals(enteredUsername) && validPassword.equals(enteredPassword)) {
+        response.sendRedirect("forgot.html");
+    } else {
+        String forgetPassword = request.getParameter("forgetPassword");
+        if ("true".equals(forgetPassword)) {
+            response.sendRedirect("forgot.html");
+            response.sendRedirect("login.html");
         }
     }
 }
+  
+
+ catch (Exception e) {
+	// TODO: handle exception
+}
+
+    }
+}
+
+    
